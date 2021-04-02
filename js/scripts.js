@@ -25,11 +25,12 @@ const thousandDigits = ["M", "MM", "MMM"];
 
 function convertSinglesPlaces(index) {
   console.log("singleDigits");
-  const firstIndex = parseInt(index - 1);
+  const firstIndex = parseInt(index);
+  console.log(firstIndex);
   if (isZero(firstIndex)) {
     return "";
   }
-  return singleDigits[firstIndex];
+  return singleDigits[firstIndex - 1];
 }
 
 function convertDoubleDigits(tensIndex, onesIndex) {
@@ -77,7 +78,7 @@ function convertThousandsDigits(thousandsIndex, hundredsIndex, tensIndex, onesIn
 
 function convertToRomanNumerals(input) {
 
-  if (!isZero(parseInt(input)) && !isZero(parseInt(input.split("")[0]))) {
+  if (!isZero(parseInt(input))) {
     const lengthOfNumber = parseInt(getTypeOfNumber(input));
     const numberInput = parseInt(input);
     const numberArray = input.split("");
